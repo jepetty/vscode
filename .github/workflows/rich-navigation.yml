@@ -20,7 +20,7 @@ jobs:
       id: cache-dependencies
       with:
         path: node_modules
-        key: ${{ runner.os }}-dependencies-${{ hashfiles(yarn.lock) }}
+        key: ${{ runner.os }}-dependencies-${{ hashfiles('yarn.lock') }}
         restore-keys: $${{ runner.os }}-dependencies-
 
     - name: Install dependencies
