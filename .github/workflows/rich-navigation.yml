@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - testRCN
 
 jobs:
   richnav:
@@ -28,5 +29,7 @@ jobs:
     - uses: microsoft/RichCodeNavIndexer@v0.1
       with:
         languages: typescript
+        environment: development
+        nugetFeed: https://pkgs.dev.azure.com/azure-public/vside/_packaging/vs-buildservices@Local/nuget/v3/index.json
         repo-token: ${{ secrets.GITHUB_TOKEN }}
       continue-on-error: true
