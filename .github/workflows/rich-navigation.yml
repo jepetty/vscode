@@ -2,8 +2,6 @@ name: "Rich Navigation Indexing"
 on:
   pull_request:
   push:
-    branches:
-      - master
 
 jobs:
   richnav:
@@ -18,6 +16,8 @@ jobs:
         path: node_modules
         key: ${{ runner.os }}-dependencies-${{ hashfiles('yarn.lock') }}
         restore-keys: ${{ runner.os }}-dependencies-
+
+    - uses: jepetty/debug-action@master
 
     - uses: actions/setup-node@v1
       with:
